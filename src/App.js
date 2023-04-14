@@ -6,11 +6,12 @@ import { useState } from "react"
 
 function App() {
   const [tasks, setTasks] = useState(tasklist)
+  // Delete task with matching id
   const deleteTask = (id) =>  setTasks(tasks.filter(task => task.id !== id))
   return (
     <div className="container">
      <Header title= 'Task Tracker'/>
-     <Tasks tasks = {tasks} eventHandler={deleteTask}/>
+     {tasks.length > 0 ? <Tasks tasks = {tasks} deleteTask={deleteTask}/> : <h1>No Tasks to Display</h1>}
     </div>
   );
 }
