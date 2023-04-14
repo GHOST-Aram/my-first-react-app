@@ -17,9 +17,6 @@ export const Task = ({item, onDelete, onToggle}) => {
   )
 }
 
-Task.prototypes = {
-    item:PropTypes.object.isRequired
-}
 Task.defaultProp = {
     item: {
         id: 0,
@@ -27,6 +24,12 @@ Task.defaultProp = {
         day: 'Jan 12th 1487',
         reminder: false,
     }
+}
+
+Task.prototypes = {
+    item:PropTypes.object.isRequired,
+    onDelete:PropTypes.func,
+    onToggle:PropTypes.func
 }
 
 

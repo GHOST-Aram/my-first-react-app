@@ -27,6 +27,7 @@ Tasks.defaultProps = {
 
 Tasks.propTypes = {
     tasks: PropTypes.array,
-    eventHandler: PropTypes.func,
+    onDelete: PropTypes.func,
+    onToggle: PropTypes.func,
 }
 
