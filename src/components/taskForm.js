@@ -35,7 +35,7 @@ export const TaskForm = ({onSave}) => {
         {/* Reminder */}
         <div className='form-control-check'>
             <label htmlFor="reminder">Set Reminder</label>
-            <input required type="checkbox" name="reminder" id="reminder" checked ={reminder} onChange={(e) => setReminder(e.target.checked)}/>
+            <input type="checkbox" name="reminder" id="reminder" checked ={reminder} onChange={(e) => setReminder(e.target.checked)}/>
         </div>
         <div>
             <button type="submit" className='btn btn-block'>Save Task</button>
