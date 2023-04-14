@@ -12,10 +12,20 @@ function App() {
 
   // Toggle reminder: Map task to task with opposite id if provided id matches a task id : Otherwise return task unchanged
   const toggleReminder = (id) => setTasks(tasks => tasks.map(task => task.id === id ? {...task, reminder:!task.reminder} : task))
+
+  // Save new Task
+  const saveTask = (task) =>{
+
+    // Add task id
+    const newTask = {id: tasks.length + 1, ...task}
+
+    // Update tasks state
+    setTasks([...tasks, newTask])
+  }
 return (
   <div className="container">
     <Header title= 'Task Tracker'/>
-    <TaskForm />
+    <TaskForm onSave ={saveTask}/>
     {/* Render Conditionally based on state of Array - Empty / not empty */}
     {
     tasks.length > 0 ? 
