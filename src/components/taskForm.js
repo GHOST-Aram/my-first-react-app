@@ -1,19 +1,30 @@
 import React from 'react'
+import { useState } from 'react'
 
 export const TaskForm = () => {
+    // Set states
+    const [text, setText] = useState('')
+    const [day, setDate] = useState('')
+    const [reminder, setReminder] = useState(false)
+
   return (
     <form className='add-form container'>
+        {/* Task description */}
         <div className='form-control'>
             <label htmlFor='task'>Task</label>
-            <input type="text" placeholder='Task text' id='task-text' />
+            <input type="text" placeholder='Task text' id='task-text' value ={text} onChange={(e) => setText(e.target.value)}/>
         </div>
+
+        {/* Task Date */}
         <div className='form-control'>
             <label htmlFor='date'>Date</label>
-            <input type="datetime" placeholder='Date' id='date' />
+            <input type="date" name="date" placeholder='Date' id='date' value ={day} onChange={(e) => setDate(e.target.value)} />
         </div>
+
+        {/* Reminder */}
         <div className='form-control-check'>
             <label htmlFor="reminder">Set Reminder</label>
-            <input type="checkbox" name="reminder" id="reminder" />
+            <input type="checkbox" name="reminder" id="reminder" value ={reminder} onChange={(e) => setReminder(e.target.checked)} />
         </div>
         <div>
             <button type="submit" className='btn btn-block'>Save Task</button>
