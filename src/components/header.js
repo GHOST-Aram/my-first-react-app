@@ -1,14 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Button } from './button'
-import { Events } from '../classes/events'
+import { events } from '../App'
 
-const event  = new Events()
 export const Header = ({title}) => {
   return (
       <header className='header'>
         {title}
-        <Button color = 'green' text = 'Add' onClick = {console.log(event.killJoy('Kill JOy'))}/>
+        <Button color = 'green' text = 'Add' onClick = {console.log(events.killJoy('Kill JOy'))}/>
       </header>
   )
 }

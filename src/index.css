@@ -65,7 +65,7 @@ body {
   border-left: 5px solid green;
 }
 
-.task h3 {
+.task h1 {
   display: flex;
   align-items: center;
   justify-content: space-between;

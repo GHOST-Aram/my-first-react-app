@@ -3,11 +3,13 @@ import { Task } from './task'
 export const Tasks = ({tasks}) => {
   return (
     <ul>
-        {tasks.map((task) =>{
+        {
+        tasks.map((task) =>{
              return <li key={task.id}>
                 <Task item = {task}/>
              </li>
-        })}
+        })
+        }
     </ul>
   )
 }
