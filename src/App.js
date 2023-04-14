@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="container">
      <Header title= 'Task Tracker'/>
-     {tasks.length > 0 ? <Tasks tasks = {tasks} deleteTask={deleteTask}/> : <h1>No Tasks to Display</h1>}
+     {tasks.length > 0 ? <Tasks tasks = {tasks} onDelete = {deleteTask}/> : <h1>No Tasks to Display</h1>}
     </div>
   );
 }

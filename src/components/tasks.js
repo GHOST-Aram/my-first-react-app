@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types'
 import { Task } from './task'
-export const Tasks = ({tasks, deleteTask}) => {
+export const Tasks = ({tasks, onDelete}) => {
 
   return (
     <ul>
         {
         tasks.map((task) =>{
              return <li key={task.id}>
-                <Task item = {task} onDelete={deleteTask}/>
+                <Task item = {task} onDelete={onDelete}/>
              </li>
         })
         }
