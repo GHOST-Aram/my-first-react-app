@@ -5,9 +5,8 @@ import { tasks as tasklist }  from "./data/data"
 import { useState } from "react"
 
 function App() {
-  const deleteTask = (e) => console.log(e.target.parentNode)
-
   const [tasks, setTasks] = useState(tasklist)
+  const deleteTask = (id) =>  setTasks(tasks.filter(task => task.id !== id))
   return (
     <div className="container">
      <Header title= 'Task Tracker'/>

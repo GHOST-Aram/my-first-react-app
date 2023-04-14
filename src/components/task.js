@@ -8,7 +8,9 @@ export const Task = ({item, onDelete}) => {
     <div className='task'>
         <h1 style={{fontSize: 'large'}}>
             <span>{item.text}</span>
-            <FaTimes onClick = {onDelete} style={{color: 'red', cursor: 'pointer'}} />
+            <FaTimes onClick = {() => onDelete(item.id)} 
+            style={{color: 'red', cursor: 'pointer'}} 
+            />
         </h1>
         <p>Day : {item.day}</p>
         {item.reminder ? <p>Reminder : Yes</p> : <p>Reminder: No</p>} 
