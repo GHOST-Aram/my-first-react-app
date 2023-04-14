@@ -6,6 +6,10 @@ import { useState } from "react"
 import { TaskForm } from './components/taskForm';
 
 function App() {
+  // Task form
+  const [taskForm, setTaskForm] = useState(false)
+
+  // Tasks
   const [tasks, setTasks] = useState(tasklist)
   // Delete task with matching id
   const deleteTask = (id) =>  setTasks(tasks.filter(task => task.id !== id))
@@ -24,8 +28,8 @@ function App() {
   }
 return (
   <div className="container">
-    <Header title= 'Task Tracker'/>
-    <TaskForm onSave ={saveTask}/>
+    <Header title= 'Task Tracker' onAdd = {() => setTaskForm(!taskForm)}/>
+    {taskForm && <TaskForm onSave ={saveTask}/>}
     {/* Render Conditionally based on state of Array - Empty / not empty */}
     {
     tasks.length > 0 ? 
