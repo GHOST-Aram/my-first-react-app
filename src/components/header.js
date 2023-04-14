@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Button } from './button'
-import { Events } from '../methods/events'
+import { Events } from '../classes/events'
 
 const event  = new Events()
 export const Header = ({title}) => {
