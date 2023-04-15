@@ -7,12 +7,6 @@
       "reminder": true
     },
     {
-      "id": 3,
-      "text": "Play Chess",
-      "day": "April 12th 2023",
-      "reminder": true
-    },
-    {
       "id": 4,
       "text": "Read Good Book",
       "day": "April 11th 2023",
@@ -21,7 +15,7 @@
     {
       "text": "Life is getting greater",
       "day": "2023-04-14",
-      "reminder": false,
+      "reminder": true,
       "id": 5
     }
   ]

@@ -1,7 +1,7 @@
 import './App.css';
 import { Header } from './components/header'
 import { Tasks } from './components/tasks';
-import { fetchData }  from "./data/data"
+import { fetchData, fetchTask }  from "./data/data"
 import { useState, useEffect } from "react"
 import { TaskForm } from './components/taskForm';
 
@@ -24,7 +24,27 @@ function App() {
   }
 
   // Toggle reminder: Map task to task with opposite id if provided id matches a task id : Otherwise return task unchanged
-  const toggleReminder = (id) => setTasks(tasks => tasks.map(task => task.id === id ? {...task, reminder:!task.reminder} : task))
+  const toggleReminder = async(id) => {
+    //Fetch target task from db
+    const taskToUpdate = await fetchTask(id)
+
+    // Update task.reminder
+    const updatedTask = {...taskToUpdate, reminder:!taskToUpdate.reminder}
+
+    // Update Task in DB
+    const response = await fetch(`http://localhost:5000/tasks/${id}`,
+    {method: 'PUT',
+    headers: {
+        'Content-type': 'application/json'
+    },
+
+    body: JSON.stringify(updatedTask)
+
+  })
+  //Update state
+    const data = await response.json()
+    setTasks(tasks => tasks.map(task => task.id === id ? {...task, reminder: data.reminder} : task))
+  }
 
   // Save new Task
   const saveTask = async(task) =>{
