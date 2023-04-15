@@ -27,13 +27,24 @@ function App() {
   const toggleReminder = (id) => setTasks(tasks => tasks.map(task => task.id === id ? {...task, reminder:!task.reminder} : task))
 
   // Save new Task
-  const saveTask = (task) =>{
+  const saveTask = async(task) =>{
+    const response = fetch('http://localhost:5000/tasks', {
+      method : 'POST',
+      headers:{
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify(task)
+        })
+      const data = await response
 
-    // Add task id
-    const newTask = {id: tasks.length + 1, ...task}
+      // Update state
+      setTasks([...tasks, data])
 
-    // Update tasks state
-    setTasks([...tasks, newTask])
+    // // Add task id 
+    // const newTask = {id: tasks.length + 1, ...task}
+
+    // // Update tasks state
+    // setTasks([...tasks, newTask])
   }
 
   //use Effect
