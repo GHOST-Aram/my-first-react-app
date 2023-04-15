@@ -6,7 +6,7 @@ import { useState } from "react"
 import { TaskForm } from './components/taskForm';
 
 function App() {
-  // Task form
+  // Task form is displayed
   const [taskForm, setTaskForm] = useState(false)
 
   // Tasks
@@ -28,7 +28,7 @@ function App() {
   }
 return (
   <div className="container">
-    <Header title= 'Task Tracker' onAdd = {() => setTaskForm(!taskForm)}/>
+    <Header title= 'Task Tracker' onAdd = {() => setTaskForm(!taskForm)} showTaskForm = {taskForm}/>
     {taskForm && <TaskForm onSave ={saveTask}/>}
     {/* Render Conditionally based on state of Array - Empty / not empty */}
     {
