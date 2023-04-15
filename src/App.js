@@ -11,8 +11,17 @@ function App() {
 
   // Tasks
   const [tasks, setTasks] = useState([])
-  // Delete task with matching id
-  const deleteTask = (id) =>  setTasks(tasks.filter(task => task.id !== id))
+  // Delete task with matching id from local array
+  
+  // Delete task matching id from server
+  const deleteTask = async (id) =>{
+    // Delete tasks from DB
+    await fetch(`http://localhost:5000/tasks/${id}`, 
+    {method: 'DELETE'})
+
+    // Update tasks
+    setTasks(tasks.filter(task => task.id !== id))
+  }
 
   // Toggle reminder: Map task to task with opposite id if provided id matches a task id : Otherwise return task unchanged
   const toggleReminder = (id) => setTasks(tasks => tasks.map(task => task.id === id ? {...task, reminder:!task.reminder} : task))
