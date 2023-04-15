@@ -1,8 +1,8 @@
 import './App.css';
 import { Header } from './components/header'
 import { Tasks } from './components/tasks';
-import { tasks as tasklist }  from "./data/data"
-import { useState } from "react"
+import { tasks as tasklist, fetchData }  from "./data/data"
+import { useState, useEffect } from "react"
 import { TaskForm } from './components/taskForm';
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
   const [taskForm, setTaskForm] = useState(false)
 
   // Tasks
-  const [tasks, setTasks] = useState(tasklist)
+  const [tasks, setTasks] = useState([])
   // Delete task with matching id
   const deleteTask = (id) =>  setTasks(tasks.filter(task => task.id !== id))
 
@@ -26,6 +26,17 @@ function App() {
     // Update tasks state
     setTasks([...tasks, newTask])
   }
+
+  //use Effect
+  useEffect(() =>{
+    const getTasks = async() => {
+      const fetchedTasks = await fetchData()
+
+      // Update state
+      setTasks(fetchedTasks)
+    }
+    getTasks()
+  }, [])
 return (
   <div className="container">
     <Header title= 'Task Tracker' onAdd = {() => setTaskForm(!taskForm)} showTaskForm = {taskForm}/>
