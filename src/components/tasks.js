@@ -5,8 +5,8 @@ export const Tasks = ({tasks, onDelete, onToggle}) => {
   return (
     <ul>
         {
-        tasks.map((task) =>{
-             return <li key={task.id}>
+        tasks.map((task, index) =>{
+             return <li key={index}>
                 <Task item = {task} onDelete={onDelete} onToggle={onToggle}/>
              </li>
         })
