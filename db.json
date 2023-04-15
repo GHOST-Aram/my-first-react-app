@@ -1,12 +1,6 @@
 {
   "tasks": [
     {
-      "id": 2,
-      "text": "Shopping Mall",
-      "day": "April 18th 2023",
-      "reminder": true
-    },
-    {
       "id": 4,
       "text": "Read Good Book",
       "day": "April 11th 2023",
@@ -17,6 +11,24 @@
       "day": "2023-04-14",
       "reminder": true,
       "id": 5
+    },
+    {
+      "text": "Sing a Song",
+      "day": "2023-04-06",
+      "reminder": false,
+      "id": 6
+    },
+    {
+      "text": "Welcome Change",
+      "day": "2023-04-14",
+      "reminder": false,
+      "id": 7
+    },
+    {
+      "text": "Nick Cannon",
+      "day": "2023-04-06",
+      "reminder": false,
+      "id": 8
     }
   ]
 }

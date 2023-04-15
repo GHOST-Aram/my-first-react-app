@@ -41,21 +41,23 @@ function App() {
     body: JSON.stringify(updatedTask)
 
   })
-  //Update state
+  //Update state && UI
     const data = await response.json()
     setTasks(tasks => tasks.map(task => task.id === id ? {...task, reminder: data.reminder} : task))
   }
 
   // Save new Task
   const saveTask = async(task) =>{
-    const response = fetch('http://localhost:5000/tasks', {
+
+    //Store to database
+    const response = await fetch('http://localhost:5000/tasks', {
       method : 'POST',
       headers:{
         'Content-type': 'application/json'
       },
       body: JSON.stringify(task)
         })
-      const data = await response
+      const data =  await response.json()
 
       // Update state
       setTasks([...tasks, data])
