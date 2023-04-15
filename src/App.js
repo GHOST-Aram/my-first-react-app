@@ -5,7 +5,7 @@ import { fetchData, fetchTask }  from "./data/data"
 import { useState, useEffect } from "react"
 import { TaskForm } from './components/taskForm';
 
-function App() {
+const App = () => {
   // Task form is displayed
   const [taskForm, setTaskForm] = useState(false)
 
