@@ -1,18 +1,6 @@
 {
   "tasks": [
     {
-      "text": "Sing a Song",
-      "day": "2023-04-06",
-      "reminder": true,
-      "id": 6
-    },
-    {
-      "text": "Welcome Change",
-      "day": "2023-04-14",
-      "reminder": true,
-      "id": 7
-    },
-    {
       "text": "Nick Cannon",
       "day": "2023-04-06",
       "reminder": true,
@@ -23,6 +11,18 @@
       "day": "2023-04-13",
       "reminder": false,
       "id": 9
+    },
+    {
+      "text": "Kiss 100",
+      "day": "2023-04-20",
+      "reminder": true,
+      "id": 10
+    },
+    {
+      "text": "Junky Jones",
+      "day": "2023-04-12",
+      "reminder": true,
+      "id": 12
     }
   ]
 }

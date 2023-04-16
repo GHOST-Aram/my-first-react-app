@@ -1,6 +1,15 @@
-import React from 'react'
 import PropTypes from 'prop-types'
 
+/**
+ * 
+ * @param {*} param0 
+ * @returns 
+ * @props :{
+ * color: Background color to be set on the button
+ * onClick: Click event hanler function
+ * text: Text Content for the button
+ * }
+ */
 export const Button = ({color, onClick, text}) => {
   return (
     <button 
