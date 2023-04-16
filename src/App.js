@@ -1,4 +1,7 @@
 import './App.css';
+import { About } from './components/about';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import { Footer } from './components/footer';
 import { Header } from './components/header'
 import { Tasks } from './components/tasks';
 import { fetchData, fetchTask }  from "./data/data"
@@ -80,16 +83,28 @@ const App = () => {
     getTasks()
   }, [])
 return (
-  <div className="container">
-    <Header title = 'Task Tracker' onAdd = {() => setTaskForm(!taskForm)} showTaskForm = {taskForm}/>
-    {taskForm && <TaskForm onSave ={saveTask}/>}
-    {/* Render Conditionally based on state of Array - Empty / not empty */}
-    {
-    tasks.length > 0 ? 
-    <Tasks tasks = {tasks} onDelete = {deleteTask} onToggle = {toggleReminder}/> 
-    : <h1>No Tasks to Display</h1>
-    }
-  </div>
+  <Router>
+    <div className="container">
+      <Header title = 'Task Tracker' onAdd = {() => setTaskForm(!taskForm)} showTaskForm = {taskForm}/>
+      <Routes>
+        <Route exact path='/' Component={
+          (props) =>(
+          <>
+            {taskForm && <TaskForm onSave ={saveTask}/>}
+            {
+            // {/* Render Conditionally based on state of Array - Empty / not empty */}
+            tasks.length > 0 ? 
+            <Tasks tasks = {tasks} onDelete = {deleteTask} onToggle = {toggleReminder}/> 
+            : <h1>No Tasks to Display</h1>
+            }
+          </>
+          )
+          }/>
+        <Route path='/about' Component={About}/>
+      </Routes>
+      <Footer />
+    </div>
+  </Router>
   );
 }
 
